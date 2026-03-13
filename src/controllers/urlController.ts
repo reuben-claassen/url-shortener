@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import urlService from '../services/urlService';
 import { AppError } from '../middleware/errorHandler';
-import { ApiResponse, ShortenedUrl, UrlAnalytics } from '../types';
+import { ApiResponse, UrlAnalytics } from '../types';
 
 const getIpAddress = (req: Request): string =>
   (req.headers['x-forwarded-for'] as string)?.split(',')[0]?.trim() ??

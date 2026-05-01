@@ -7,10 +7,14 @@ services:
     envVars:
       - key: NODE_ENV
         value: production
-      - key: DATABASE_URL
-        sync: false
       - key: BASE_URL
         value: https://snip.reubenlabs.dev
+      - key: DB_HOST
+        sync: false
+      - key: DB_USER
+        sync: false
+      - key: DB_PASSWORD
+        sync: false
       - key: SLUG_LENGTH
         value: "7"
       - key: DEFAULT_EXPIRY_DAYS

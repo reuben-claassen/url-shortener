@@ -118,7 +118,7 @@ npm install
 
 # 2. Configure environment
 cp .env.example .env
-# Edit .env with your DATABASE_URL and preferred settings
+# Edit .env with your DB variables and preferred settings
 
 # 3. Run the database schema
 psql $DATABASE_URL -f src/config/schema.sql

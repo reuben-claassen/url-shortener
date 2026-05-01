@@ -21,7 +21,7 @@ export const validate =
 export const createUrlSchema = z.object({
   url: z
     .string({ required_error: 'URL is required' })
-    .url('Must be a valid URL')
+    .url('Must be a valid URL including https://')
     .max(2048, 'URL must not exceed 2048 characters'),
   customSlug: z
     .string()

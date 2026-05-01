@@ -35,7 +35,9 @@ export const shortenUrl = async (
 
     res.status(201).json(response);
   } catch (err) {
-    if (err instanceof Error) {
+    if (err instanceof AppError) {
+      next(err);
+    } else if (err instanceof Error) {
       next(new AppError(400, err.message));
     } else {
       next(err);

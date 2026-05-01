@@ -38,10 +38,8 @@ export const shortenUrl = async (
     console.error('shortenUrl error:', err);
     if (err instanceof AppError) {
       next(err);
-    } else if (err instanceof Error) {
-      next(new AppError(400, err.message));
     } else {
-      next(err);
+      next(new AppError(500, 'Something went wrong — please try again'));
     }
   }
 };
@@ -70,7 +68,12 @@ export const redirectToUrl = async (
 
     res.redirect(301, url.originalUrl);
   } catch (err) {
-    next(err);
+    console.error('redirectToUrl error:', err);
+    if (err instanceof AppError) {
+      next(err);
+    } else {
+      next(new AppError(500, 'Something went wrong — please try again'));
+    }
   }
 };
 
@@ -90,7 +93,12 @@ export const getAnalytics = async (
     const response: ApiResponse<UrlAnalytics> = { success: true, data: analytics };
     res.json(response);
   } catch (err) {
-    next(err);
+    console.error('getAnalytics error:', err);
+    if (err instanceof AppError) {
+      next(err);
+    } else {
+      next(new AppError(500, 'Something went wrong — please try again'));
+    }
   }
 };
 

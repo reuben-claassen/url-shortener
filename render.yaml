@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: url-shortener
+    runtime: node
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_URL
+        sync: false
+      - key: BASE_URL
+        value: https://snip.reubenlabs.dev
+      - key: SLUG_LENGTH
+        value: "7"
+      - key: DEFAULT_EXPIRY_DAYS
+        value: "30"
+      - key: MAX_URLS_PER_IP_PER_HOUR
+        value: "20"

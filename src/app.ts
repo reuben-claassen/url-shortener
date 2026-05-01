@@ -17,6 +17,8 @@ app.use(cors());
 app.use(morgan(process.env.NODE_ENV === 'production' ? 'combined' : 'dev'));
 app.use(express.json());
 
+app.set('trust proxy', 1);
+
 // ── Rate Limiting ──────────────────────────────────────────────────────────────
 const shortenLimiter = rateLimit({
   windowMs: 60 * 60 * 1000, // 1 hour
